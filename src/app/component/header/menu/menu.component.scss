@@ -8,3 +8,21 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.menu-flex-child {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+}
