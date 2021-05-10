@@ -10,12 +10,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MenuComponent } from './component/header/menu/menu.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
