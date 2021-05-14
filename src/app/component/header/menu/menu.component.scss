@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 0 100px;
+  padding: 0;
 }
 
 .menu-body {
@@ -7,6 +7,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 10px 100px;
+  box-sizing: border-box;
 }
 
 .menu-flex-child {

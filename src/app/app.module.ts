@@ -11,13 +11,21 @@ import {MatIconModule} from '@angular/material/icon';
 import { MenuComponent } from './component/header/menu/menu.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { FooterComponent } from './component/footer/footer.component';
+import { FlexTableComponent } from './page/main-page/flex-table/flex-table.component';
+import { MainPageComponent } from './page/main-page/main-page.component';
+import { SliderComponent } from './page/main-page/slider/slider.component';
+import { FlexElemCardComponent } from './page/main-page/flex-table/flex-elem-card/flex-elem-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    FlexTableComponent,
+    MainPageComponent,
+    SliderComponent,
+    FlexElemCardComponent
   ],
   imports: [
     BrowserModule,
