@@ -15,6 +15,10 @@ import { FlexTableComponent } from './page/main-page/flex-table/flex-table.compo
 import { MainPageComponent } from './page/main-page/main-page.component';
 import { SliderComponent } from './page/main-page/slider/slider.component';
 import { FlexElemCardComponent } from './page/main-page/flex-table/flex-elem-card/flex-elem-card.component';
+import { LoginPageComponent } from './page/login-page/login-page.component';
+import { RegistrationPageComponent } from './page/registration-page/registration-page.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { FlexElemCardComponent } from './page/main-page/flex-table/flex-elem-car
     FlexTableComponent,
     MainPageComponent,
     SliderComponent,
-    FlexElemCardComponent
+    FlexElemCardComponent,
+    LoginPageComponent,
+    RegistrationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,9 @@ import { FlexElemCardComponent } from './page/main-page/flex-table/flex-elem-car
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
