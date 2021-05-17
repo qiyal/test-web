@@ -45,7 +45,7 @@ export class RegistrationPageComponent implements OnInit {
 
   clickRegistration(): void {
     this.userService.createUser(this.registrationForm.getRawValue()).subscribe(res => {
-      this.authService.setUser(res);
+      this.authService.setUserIdAndEmail(String(res.id), res.email);
       this.router.navigate(['/my-account']);
     });
   }

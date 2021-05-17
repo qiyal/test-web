@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Router} from "@angular/router";
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -12,11 +12,19 @@ export class HeaderComponent implements OnInit {
     inputText: new FormControl('')
   });
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {}
 
   clickSearchBtn(): void {
 
+  }
+
+  isAuth(): boolean {
+    return this.authService.getIsAuth();
+  }
+
+  getEmail(): string | null {
+    return this.authService.getUserEmail();
   }
 }

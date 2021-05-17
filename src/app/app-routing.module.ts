@@ -15,6 +15,10 @@ const routes: Routes = [
     component: MyAccountPageComponent
   },
   {
+    path: 'store',
+    loadChildren: () => import('./module/store/store.module').then(m => m.StoreModule)
+  },
+  {
     path: 'login',
     component: LoginPageComponent
   },

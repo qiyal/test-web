@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
   clickLogin(): void {
     this.authService.login(this.loginForm.getRawValue()).subscribe(res => {
       if (res.length !== 0) {
-        this.authService.setUser(res[0]);
+        this.authService.setUserIdAndEmail(String(res[0].id), res[0].email);
         this.router.navigate(['/my-account']);
       }
     });
