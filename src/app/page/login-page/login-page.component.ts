@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import { AuthService } from 'src/app/service/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-page',
@@ -8,17 +10,17 @@ import {FormBuilder, FormControl, Validators} from "@angular/forms";
 })
 export class LoginPageComponent implements OnInit {
   loginForm = this.fb.group({
-    login: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  get login(): FormControl {
-    return this.loginForm.get('login') as FormControl;
+  get email(): FormControl {
+    return this.loginForm.get('email') as FormControl;
   }
 
   get password(): FormControl {
@@ -26,7 +28,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   clickLogin(): void {
-    console.log();
+    this.authService.login(this.loginForm.getRawValue()).subscribe(res => {
+      if (res.length !== 0) {
+        this.authService.setUser(res[0]);
+        this.router.navigate(['/my-account']);
+      }
+    });
   }
-
 }

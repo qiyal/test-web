@@ -17,8 +17,12 @@ import { SliderComponent } from './page/main-page/slider/slider.component';
 import { FlexElemCardComponent } from './page/main-page/flex-table/flex-elem-card/flex-elem-card.component';
 import { LoginPageComponent } from './page/login-page/login-page.component';
 import { RegistrationPageComponent } from './page/registration-page/registration-page.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {AuthService} from "./service/auth.service";
+import { MyAccountPageComponent } from './page/my-account-page/my-account-page.component';
+import {HttpClientModule} from "@angular/common/http";
+import {UserService} from "./service/user.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import {MatInputModule} from "@angular/material/input";
     SliderComponent,
     FlexElemCardComponent,
     LoginPageComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
+    MyAccountPageComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +47,13 @@ import {MatInputModule} from "@angular/material/input";
     MatIconModule,
     MatMenuModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

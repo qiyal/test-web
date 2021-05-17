@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {UserService} from "../../service/user.service";
+import {Router} from "@angular/router";
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-registration-page',
@@ -11,11 +14,15 @@ export class RegistrationPageComponent implements OnInit {
     name: ['', [Validators.required]],
     surname: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-    passwordCheck: ['', Validators.required]
+    password: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -36,11 +43,10 @@ export class RegistrationPageComponent implements OnInit {
     return this.registrationForm.get('password') as FormControl;
   }
 
-  get passwordCheck(): FormControl {
-    return this.registrationForm.get('passwordCheck') as FormControl;
-  }
-
   clickRegistration(): void {
-    console.log();
+    this.userService.createUser(this.registrationForm.getRawValue()).subscribe(res => {
+      this.authService.setUser(res);
+      this.router.navigate(['/my-account']);
+    });
   }
 }
